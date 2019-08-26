@@ -133,7 +133,7 @@ function storeDb() {
 
 
 	(async () => {
-		const rawResponse = await fetch("http://"+window.location.hostname+":3000/insert", {
+		const rawResponse = await fetch(location.protocol+"//"+window.location.hostname+":3000/insert", {
 			method: 'POST',
 			body: JSON.stringify({ input: input, txnHash: txnHash }),
 			headers: new Headers({ "Content-Type": "application/json" })
@@ -165,7 +165,7 @@ function Logic_random() {
 		var randomResp;
 		const txnHash = localStorage.getItem("txnHash");
 
-		await fetch("http://"+window.location.hostname+":3000/random", {
+		await fetch(location.protocol+"//"+window.location.hostname+":3000/random", {
 			method: 'POST',
 			body: JSON.stringify({ txnHash: txnHash }),
 			headers: new Headers({ "Content-Type": "application/json" })

@@ -361,7 +361,7 @@ SLIDES.push({
 			var txnHash = localStorage.getItem("txnHash");
 			var chainId = parseInt(web3.version.network);
 			(async () => {
-				const totalRes = await fetch("http://"+window.location.hostname+":3000/total", {
+				const totalRes = await fetch(location.protocol+"//"+window.location.hostname+":3000/total", {
 					method: 'POST',
 					body: JSON.stringify({ txnHash: txnHash, chainId: chainId }),
 					headers: new Headers({ "Content-Type": "application/json" })
