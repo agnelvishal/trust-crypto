@@ -52,7 +52,7 @@ var sound;
 
 SLIDES.push({
 
-	//id: "preloader",
+	id: "preloader",
 	onstart: function(self){
 
 		var o = self.objects;
@@ -85,6 +85,13 @@ SLIDES.push({
 			o.loading_button.setText2(Words.get("loading")+" "+ratio+"%");
 		};
 
+		// Button
+		self.add({
+			id:"loading_button1", type:"Button", x:382, y:490,
+			text_id:"loading1",
+			active:false
+		})
+
 		// PRELOADER
 		listen(self,"preloader/progress", function(ratio){
 			_loadingWords(ratio);
@@ -92,16 +99,23 @@ SLIDES.push({
 		});
 		listen(self,"preloader/done", function(){
 			o.loading_button.setText("loading_done");
+			o.loading_button1.setText("loading_done1");
+
 			o.loading_button.activate();
+			o.loading_button1.activate();
 			o.loading_button.config.onclick = function(){
 				publish("start/game");
 		//	screenfull.request();
-
    sound = new Howl({ src:["assets/sounds/bg_music.mp3"] });
 sound.once('load',function() {sound.volume(0.75).loop(true).play();} );
-
-
 			};
+
+			o.loading_button1.config.onclick = function(){
+				publish("slideshow/goto", ["crypto"]);
+				//	screenfull.request();
+   sound = new Howl({ src:["assets/sounds/bg_music.mp3"] });
+sound.once('load',function() {sound.volume(0.75).loop(true).play();} );
+			};			
 		});
 
 	},
@@ -110,6 +124,8 @@ sound.once('load',function() {sound.volume(0.75).loop(true).play();} );
 		self.remove("title");
 		self.remove("subtitle");
 		self.remove("loading_button");
+		self.remove("loading_button1");
+
 	}
 
 });

@@ -1,22 +1,23 @@
 <html lang="en">
 <head>
+
+		<script src="js/lib/web3.min.js?v11"></script>
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47293504-5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47293504-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
 
-  gtag('config', 'UA-47293504-5');
-</script>
+	  gtag('config', 'UA-47293504-5');
+	</script>
 
-<meta charset="utf-8">
 	<!-- TO TRANSLATE: "title", "description" -->
-	<title>Trusting Trust</title>
-	<meta name="description" content="an interactive story on trust"/>
-
+	<title>The Evolution of Trust</title>
+	<meta name="description" content="An interactive story about trust."/>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
-
 
 
 <!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
@@ -24,11 +25,11 @@
 	<link rel="manifest" href="manifest.json">
 
 
+
 	<!-- TO TRANSLATE: "name", "description" -->
 	<meta itemprop="name" content="Trusting Trust">
 	<meta itemprop="description" content="An interactive story of trust.">
 	<meta itemprop="image" content="https://raw.githubusercontent.com/agnelvishal/TrustingTrust/master/social/thumbnail.png">
-
 
 	<!-- TO TRANSLATE: "name", "description" -->
 	<meta name="twitter:card" content="summary_large_image">
@@ -45,56 +46,97 @@
 	<meta property="og:image" content="https://raw.githubusercontent.com/agnelvishal/TrustingTrust/master/social/thumbnail.png">
 	<meta property="og:description" content="An interactive story of trust.">
 
-<style>
-#avImgBrowser {
-max-width: 4%;
-    height: auto;
-}
+	<!-- Styles -->
+	<link rel="stylesheet" href="css/slides.css?v11">
+	<link rel="stylesheet" href="css/balloon.css?v11">
 
-</style>
 </head>
+<body>
 
-<body id="avbody">
-<script>
-if(screen.width>500)
-{
-  document.location.replace('pc/index.html');
-}
+	<div id="preloader">This text will disppear faster than you can read.</div> <!-- TRANSLATE THIS -->
 
-
+	<div style="display:none" id="main">
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
 
 
-</script>
+
+	</div>
 
 
-<font size="6">
-Special apps require special work. So, to continue, please do the following<br>
- 1) Make sure you are using chrome in android or Safari in iOs. <br>
- 2) For android, open the browser menu <img id="avImgBrowser"> which is usually at top right corner. For iOs, tap on share button which is usually at the bottom.<br>
- 3) Tap on "Add to homescreen" and access it from homescreen <br>
+	<div style="display:none" >
+
+	</div>
 
 
-</font>
-<center>
-<img id="avBrowserBtn">
-</center>
-<script>
-  if(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream)
-   {
-   document.getElementById('avImgBrowser').src ="assets/browser/ios.png";
-   document.getElementById('avBrowserBtn').src ="assets/browser/marked-ios.png";
-   }
-else
-  {
-  document.getElementById('avImgBrowser').src ="assets/browser/android.png";
-  document.getElementById('avBrowserBtn').src ="assets/browser/marked.png";
-  }
-
-</script>
-
-<font size="6">
-Alternatively you can play in desktop.
-</font>
 </body>
-
 </html>
+
+<!-- Libraries -->
+
+<script src="js/lib/helpers.js?v11"></script>
+
+<script src="js/lib/pegasus.js?v11"></script>
+<script>var c_ = {};</script>
+<script src="js/lib/minpubsub.src.js?v11"></script>
+<script src="js/lib/q.js?v11"></script>
+<script src="js/lib/pixi.min.js?v11"></script>
+<script src="js/lib/howler.js?v11"></script>
+
+<script>var createjs = window;</script>
+
+<script src="js/lib/tweenjs-0.6.2.min.js?v11"></script>
+<script>Ticker.framerate=60; Ticker.paused=true;</script>
+
+
+
+
+<!-- Core Engine -->
+<script src="js/core/Loader.js?v11"></script>
+<script src="js/core/Slideshow.js?v11"></script>
+
+<script src="js/core/SlideSelect.js?v11"></script>
+
+<script src="js/core/Button.js?v11"></script>
+<script src="js/core/TextBox.js?v11"></script>
+<script src="js/core/Words.js?v11"></script>
+<script defer src="js/core/IncDecNumber.js?v11"></script>
+<script defer src="js/core/Slider.js?v11"></script>
+
+<script defer src="js/core/Background.js?v11"></script>
+<script src="js/core/ImageBox.js?v11"></script>
+<script defer src="js/core/PayoffsUI.js?v11"></script>
+
+<!-- Simulations -->
+
+<script src="js/sims/PD.js?v11"></script>
+<script src="js/sims/Iterated.js?v11"></script>
+<script defer src="js/sims/Tournament.js?v11"></script>
+
+<!--script src="js/sims/Splash.js?v11"></script-->
+
+
+<!-- Slides -->
+<script src="js/slides/0_Slides_Intro.js?v11"></script>
+<script defer src="js/slides/1_Slides_OneOff.js?v11"></script>
+<script defer src="js/slides/2_Slides_Iterated.js?v11"></script>
+<script defer src="js/slides/3_Slides_Tournament.js?v11"></script>
+
+
+<!-- Main Code -->
+<script src="js/main.js?v11"></script>
+
+
+<script>
+// if (navigator.serviceWorker.controller) {
+//   console.log('[PWA Builder] active service worker found, no need to register')
+// } else {
+//   navigator.serviceWorker.register('pwabuilder-sw.js', {
+//     scope: './'
+//   }).then(function(reg) {
+//     console.log('Service worker has been registered for scope:'+ reg.scope);
+//   });
+// }
+
+
+</script>

@@ -11,7 +11,8 @@ Loader.addToManifest(Loader.manifest,{
 	evil_laugh: "assets/sounds/evil_laugh.mp3",
 	whoosh: "assets/sounds/whoosh.mp3",
 	thump: "assets/sounds/thump.mp3",
-	machine_start: "assets/sounds/machine_start.mp3"
+	machine_start: "assets/sounds/machine_start.mp3",
+	fart: "assets/sounds/fart.mp3"
 
 });
 
@@ -136,12 +137,12 @@ function Iterated(config){
 		self.playerB.chooseHat(id);
 	};
 
-	self.playOneRound = function(yourMove){
+	self.playOneRound = async function(yourMove){
 
 		// Make your moves!
 		var A = yourMove;
 		if(yourMove=="TRIP") A=PD.CHEAT;
-		var B = self.opponentLogic.play();
+		var B = await self.opponentLogic.play();
 
 		// Get payoffs
 		var payoffs = PD.getPayoffs(A,B);
@@ -192,7 +193,7 @@ function Iterated(config){
 		self.playerA.resetFace();
 		self.playerB.resetFace();
 	});
-	self.chooseOpponent("tft");
+	self.chooseOpponent("random");
 
 	///////////////////////////////////////////////
 	///////////// ADD, REMOVE, KILL ///////////////
