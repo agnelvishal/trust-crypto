@@ -71,7 +71,12 @@ SLIDES.push({
 					t = `Install Metamask or similar dapps tools. Also you will need ether crypto.`;
 					if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 						var linkElement = document.createElement('a');
-						linkElement.href = "http://google.com";
+						
+						linkElement.href = "https://play.google.com/store/apps/details?id=org.toshi";
+						if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+						linkElement.href = "https://apps.apple.com/app/coinbase-wallet/id1278383455?ls=1";
+						}
+						
 						linkElement.id = "coinbase"
 
 						var oImg = document.createElement("img");
