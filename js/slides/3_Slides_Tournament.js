@@ -56,7 +56,7 @@ SLIDES.push({
 							document.querySelector("#slideshow > div.object.textbox").append(p)
 						}
 						else {
-							p=error.message
+							p = error.message
 							document.querySelector("#slideshow > div.object.textbox").append(p)
 						}
 					}
@@ -68,8 +68,18 @@ SLIDES.push({
 				p.className = "error"
 				if (error == "ReferenceError: web3 is not defined") {
 					console.log("undefined")
-					Words.get("")
 					t = `Install Metamask or similar dapps tools. Also you will need ether crypto.`;
+					if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+						var linkElement = document.createElement('a');
+						linkElement.href = "http://google.com";
+						linkElement.id = "coinbase"
+
+						var oImg = document.createElement("img");
+						oImg.setAttribute('src', 'assets/browser/getCoinbaseWallet.svg');
+						linkElement.appendChild(oImg);
+						document.body.appendChild(linkElement);
+
+					}
 				}
 				else {
 					t = document.createTextNode("Make sure you have logged in and have shared your address from Metamask or similar Dapp tools .")
@@ -361,7 +371,7 @@ SLIDES.push({
 			var txnHash = localStorage.getItem("txnHash");
 			var chainId = parseInt(web3.version.network);
 			(async () => {
-				const totalRes = await fetch(location.protocol+"//"+window.location.hostname+":3000/total", {
+				const totalRes = await fetch(location.protocol + "//" + window.location.hostname + ":3000/total", {
 					method: 'POST',
 					body: JSON.stringify({ txnHash: txnHash, chainId: chainId }),
 					headers: new Headers({ "Content-Type": "application/json" })

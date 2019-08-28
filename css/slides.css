@@ -33,6 +33,12 @@ body {
     width: 60px;
 }
 
+a#coinbase {
+    position: absolute;
+    bottom: 0;
+    right: 41%;
+}
+
 #jokersmall {
 
 	position: absolute;
