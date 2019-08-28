@@ -310,7 +310,7 @@ SLIDES.push({
 		// Next Button!
 		self.add({
 			id:"next_button", type:"Button", x:544, y:471, size:"long",
-			text_id:"characters_button",
+			text_id:"Ccharacters_button",
 			message:"slideshow/next"
 		});
 

@@ -36,12 +36,6 @@ Loader.addToManifest(Loader.manifest,{
 	// IMAGE BOXES
 	image1: "assets/evolution/evolution_intro.png",
 	image2: "assets/conclusion/summary.png",
-  imageg1: "assets/generalInfo/1.jpg",
-	imageg2: "assets/generalInfo/2.jpg",
-	imageg3: "assets/generalInfo/3.jpg",
-	imageg4: "assets/generalInfo/4.jpg",
-	imageg5: "assets/generalInfo/5.jpg",
-	imageg6: "assets/generalInfo/6.jpg",
 
    joker: "assets/joker.jpg",
 	 jokercard: "assets/jokercard.png"

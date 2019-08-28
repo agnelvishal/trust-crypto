@@ -164,8 +164,9 @@ function Logic_random() {
 
 		var randomResp;
 		const txnHash = localStorage.getItem("txnHash");
-
-		await fetch(location.protocol+"//"+window.location.hostname+":3000/random", {
+var randomF=location.protocol+"//"+window.location.hostname+":3000/random";
+		
+await fetch(randomF, {
 			method: 'POST',
 			body: JSON.stringify({ txnHash: txnHash }),
 			headers: new Headers({ "Content-Type": "application/json" })
