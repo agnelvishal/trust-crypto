@@ -34,33 +34,33 @@ SLIDES.push({
 
 		o.crypto_button.config.onclick = function () {
 
-
 			try {
-				web3.eth.sendTransaction({
-					from: web3.eth.coinbase,
-					to: '0x40ADe8d4B29306486b0ED948Dc2Ed7a4eA71c2d8',
-					value: web3.toWei(0.02, 'ether')
-				}, function (error, result) {
-					if (!error) {
-						localStorage.setItem("txnHash", result);
-						publish("slideshow/goto", ["new_iterated"]);
+				ethereum.enable().then(
+					web3.eth.sendTransaction({
+						from: web3.eth.coinbase,
+						to: '0x40ADe8d4B29306486b0ED948Dc2Ed7a4eA71c2d8',
+						value: web3.toWei(0.02, 'ether')
+					}, function (error, result) {
+						if (!error) {
+							localStorage.setItem("txnHash", result);
+							publish("slideshow/goto", ["new_iterated"]);
 
-						// document.getElementById('response').innerHTML = 'Success: <a href="https://rinkeby.etherscan.io/tx/' + result + '"> View Transaction </a>'
+							// document.getElementById('response').innerHTML = 'Success: <a href="https://rinkeby.etherscan.io/tx/' + result + '"> View Transaction </a>'
 
-					} else {
-						p = document.createElement("p")
-						p.className = "error"
-						if (error.code == -32000) {
-							t = document.createTextNode("Error: Gas fee was set low. Can you try again?")
-							p.append(t)
-							document.querySelector("#slideshow > div.object.textbox").append(p)
+						} else {
+							p = document.createElement("p")
+							p.className = "error"
+							if (error.code == -32000) {
+								t = document.createTextNode("Error: Gas fee was set low. Can you try again?")
+								p.append(t)
+								document.querySelector("#slideshow > div.object.textbox").append(p)
+							}
+							else {
+								p = error.message
+								document.querySelector("#slideshow > div.object.textbox").append(p)
+							}
 						}
-						else {
-							p = error.message
-							document.querySelector("#slideshow > div.object.textbox").append(p)
-						}
-					}
-				})
+					}));
 			}
 			catch (error) {
 				console.log(error)
@@ -71,12 +71,12 @@ SLIDES.push({
 					t = `Install Metamask or similar dapps tools. Also you will need ether crypto.`;
 					if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 						var linkElement = document.createElement('a');
-						
+
 						linkElement.href = "https://play.google.com/store/apps/details?id=org.toshi";
 						if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-						linkElement.href = "https://apps.apple.com/app/coinbase-wallet/id1278383455?ls=1";
+							linkElement.href = "https://apps.apple.com/app/coinbase-wallet/id1278383455?ls=1";
 						}
-						
+
 						linkElement.id = "coinbase"
 
 						var oImg = document.createElement("img");
