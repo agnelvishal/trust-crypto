@@ -6,16 +6,7 @@ SLIDES.push({
 	},
 	onstart: function (self) {
 
-		window.addEventListener('load', function () {
-			// Check if Web3 has been injected by the browser:
-			if (typeof web3 !== 'undefined') {
-				console.log('You have web3');
-			} else {
-				console.log('You DONT HAVE web3. Also Due to browser security restrictions, we cant communicate with dapps running on file: Please use a local server for development.');
-				alert("Install Metamask");
-			}
-		}
-		);
+
 		var o = self.objects;
 
 		// Circular Wordbox
@@ -35,7 +26,7 @@ SLIDES.push({
 		o.crypto_button.config.onclick = function () {
 
 			try {
-				ethereum.enable().then(
+				
 					web3.eth.sendTransaction({
 						from: web3.eth.coinbase,
 						to: '0x40ADe8d4B29306486b0ED948Dc2Ed7a4eA71c2d8',
@@ -60,7 +51,7 @@ SLIDES.push({
 								document.querySelector("#slideshow > div.object.textbox").append(p)
 							}
 						}
-					}));
+					})
 			}
 			catch (error) {
 				console.log(error)

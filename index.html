@@ -139,5 +139,16 @@
 //   });
 // }
 
+window.addEventListener('load', function () {
+			// Check if Web3 has been injected by the browser:
+			if (typeof web3 !== 'undefined') {
+				console.log('You have web3');
+				ethereum.enable().then(console.log('You have loggined from metamask'));
+			} else {
+				console.log('You DONT HAVE web3. Also Due to browser security restrictions, we cant communicate with dapps running on file: Please use a local server for development.');
+				alert("Install Metamask");
+			}
+		}
+		);
 
 </script>
