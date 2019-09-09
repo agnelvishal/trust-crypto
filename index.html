@@ -142,6 +142,7 @@
 window.addEventListener('load', function () {
 			// Check if Web3 has been injected by the browser:
 			if (typeof web3 !== 'undefined') {
+				window.web3 = new Web3(ethereum);
 				console.log('You have web3');
 				ethereum.enable().then(console.log('You have loggined from metamask'));
 			} else {
@@ -149,6 +150,6 @@ window.addEventListener('load', function () {
 				alert("Install Metamask");
 			}
 		}
-		);
+		);	
 
 </script>
