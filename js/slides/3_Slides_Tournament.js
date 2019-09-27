@@ -78,7 +78,7 @@ SLIDES.push({
 					}
 				}
 				else {
-					t = document.createTextNode("Make sure you have logged in and have shared your address from Metamask or similar Dapp tools .")
+					t = document.createTextNode("To use your Ethereum Wallet, login into Torus by clicking on the Blue icon at bottom left.")
 				}
 				p.append(t)
 				document.querySelector("#slideshow > div.object.textbox").append(p)
