@@ -1,27 +1,28 @@
 <html lang="en">
+
 <head>
 
-		<script src="js/lib/web3.min.js?v11"></script>
+	<script src="js/lib/web3.min.js?v11"></script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47293504-10"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47293504-10"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-  gtag('config', 'UA-47293504-10');
-</script>
+		gtag('config', 'UA-47293504-10');
+	</script>
 
 
 	<!-- TO TRANSLATE: "title", "description" -->
 	<title>The Evolution of Trust</title>
-	<meta name="description" content="An interactive story about trust."/>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta name="description" content="An interactive story about trust." />
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
 
 
-<!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
+	<!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=0.5 maximum-scale=10.0, minimum-scale=0.1, user-scalable=yes"/>  -->
 	<link rel="manifest" href="manifest.json">
 
@@ -30,7 +31,8 @@
 	<!-- TO TRANSLATE: "name", "description" -->
 	<meta itemprop="name" content="Trusting Trust">
 	<meta itemprop="description" content="An interactive story of trust.">
-	<meta itemprop="image" content="https://raw.githubusercontent.com/agnelvishal/TrustingTrust/master/social/thumbnail.png">
+	<meta itemprop="image"
+		content="https://raw.githubusercontent.com/agnelvishal/TrustingTrust/master/social/thumbnail.png">
 
 	<!-- TO TRANSLATE: "name", "description" -->
 	<meta name="twitter:card" content="summary_large_image">
@@ -38,13 +40,15 @@
 	<meta name="twitter:title" content="Trusting Trust">
 	<meta name="twitter:description" content="An interactive story of trust.">
 	<meta name="twitter:creator" content="@agnelvishal">
-	<meta name="twitter:image" content="https://raw.githubusercontent.com/agnelvishal/TrustingTrust/master/social/thumbnail.png">
+	<meta name="twitter:image"
+		content="https://raw.githubusercontent.com/agnelvishal/TrustingTrust/master/social/thumbnail.png">
 
 	<!-- TO TRANSLATE: "name", "description" -->
 	<meta property="og:title" content="Trusting Trust">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://agnelvishal.github.io/TrustingTrust">
-	<meta property="og:image" content="https://raw.githubusercontent.com/agnelvishal/TrustingTrust/master/social/thumbnail.png">
+	<meta property="og:image"
+		content="https://raw.githubusercontent.com/agnelvishal/TrustingTrust/master/social/thumbnail.png">
 	<meta property="og:description" content="An interactive story of trust.">
 
 	<!-- Styles -->
@@ -52,6 +56,7 @@
 	<link rel="stylesheet" href="css/balloon.css?v11">
 
 </head>
+
 <body>
 
 	<div id="preloader">This text will disppear faster than you can read.</div> <!-- TRANSLATE THIS -->
@@ -62,16 +67,17 @@
 
 
 
-	</div>
+		</div>
 
 
-	<div style="display:none" >
+		<div style="display:none">
 
-	</div>
+		</div>
 
-	<a href="https://t.me/EthereumApps" target="_blank"> <img id="telegram" src="assets/telegram.png">
-	</a>
+		<a href="https://t.me/EthereumApps" target="_blank"> <img id="telegram" src="assets/telegram.png">
+		</a>
 </body>
+
 </html>
 
 <!-- Libraries -->
@@ -88,7 +94,7 @@
 <script>var createjs = window;</script>
 
 <script src="js/lib/tweenjs-0.6.2.min.js?v11"></script>
-<script>Ticker.framerate=60; Ticker.paused=true;</script>
+<script>Ticker.framerate = 60; Ticker.paused = true;</script>
 
 
 
@@ -130,27 +136,34 @@
 
 
 <script>
-// if (navigator.serviceWorker.controller) {
-//   console.log('[PWA Builder] active service worker found, no need to register')
-// } else {
-//   navigator.serviceWorker.register('pwabuilder-sw.js', {
-//     scope: './'
-//   }).then(function(reg) {
-//     console.log('Service worker has been registered for scope:'+ reg.scope);
-//   });
-// }
+	// if (navigator.serviceWorker.controller) {
+	//   console.log('[PWA Builder] active service worker found, no need to register')
+	// } else {
+	//   navigator.serviceWorker.register('pwabuilder-sw.js', {
+	//     scope: './'
+	//   }).then(function(reg) {
+	//     console.log('Service worker has been registered for scope:'+ reg.scope);
+	//   });
+	// }
 
-window.addEventListener('load', function () {
-			// Check if Web3 has been injected by the browser:
-			if (typeof web3 !== 'undefined') {
-				window.web3 = new Web3(ethereum);
-				console.log('You have web3');
-				ethereum.enable().then(console.log('You have loggined from metamask'));
-			} else {
-				console.log('You DONT HAVE web3. Also Due to browser security restrictions, we cant communicate with dapps running on file: Please use a local server for development.');
-				alert("Install Metamask or similar tool to use Blockchain apps.");
-			}
+	window.addEventListener('load', function () {
+		// Check if Web3 has been injected by the browser:
+		if (typeof web3 !== 'undefined') {
+			window.web3 = new Web3(ethereum);
+			console.log('You have web3');
+			ethereum.enable().then(console.log('You have loggined from metamask'));
+		} else {
+			console.log('You DONT HAVE Metamask or similar tool. No problem, we shall try using Torus');
+			(async () => {
+				await import('https://app.tor.us/v0.1.2/embed.min.js')
+			})()
+
 		}
-		);	
+	}
+	);
 
 </script>
+
+<!-- <script src="https://app.tor.us/v0.1.2/embed.min.js"
+        integrity="sha384-K0+ZXfdlBGg/11L/B7pPBsfbggPm/8h/w2t7sz6vYTTQhaLoBHfmNEH+oDFDd8sZ"
+        crossorigin="anonymous"></script> -->

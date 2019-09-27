@@ -59,7 +59,7 @@ SLIDES.push({
 				p.className = "error"
 				if (error == "ReferenceError: web3 is not defined") {
 					console.log("undefined")
-					t = `Install Metamask or similar dapps tools. Also you will need ether crypto.`;
+					t = `To use your Ethereum Wallet, login into Torus by clicking on the Blue icon at bottom left.`;
 					if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 						var linkElement = document.createElement('a');
 
