@@ -26,32 +26,32 @@ SLIDES.push({
 		o.crypto_button.config.onclick = function () {
 
 			try {
-				
-					web3.eth.sendTransaction({
-						from: web3.eth.coinbase,
-						to: '0x40ADe8d4B29306486b0ED948Dc2Ed7a4eA71c2d8',
-						value: web3.toWei(0.02, 'ether')
-					}, function (error, result) {
-						if (!error) {
-							localStorage.setItem("txnHash", result);
-							publish("slideshow/goto", ["new_iterated"]);
 
-							// document.getElementById('response').innerHTML = 'Success: <a href="https://rinkeby.etherscan.io/tx/' + result + '"> View Transaction </a>'
+				web3.eth.sendTransaction({
+					from: web3.eth.coinbase,
+					to: '0x40ADe8d4B29306486b0ED948Dc2Ed7a4eA71c2d8',
+					value: web3.toWei(0.02, 'ether')
+				}, function (error, result) {
+					if (!error) {
+						localStorage.setItem("txnHash", result);
+						publish("slideshow/goto", ["new_iterated"]);
 
-						} else {
-							p = document.createElement("p")
-							p.className = "error"
-							if (error.code == -32000) {
-								t = document.createTextNode("Error: Gas fee was set low. Can you try again?")
-								p.append(t)
-								document.querySelector("#slideshow > div.object.textbox").append(p)
-							}
-							else {
-								p = error.message
-								document.querySelector("#slideshow > div.object.textbox").append(p)
-							}
+						// document.getElementById('response').innerHTML = 'Success: <a href="https://rinkeby.etherscan.io/tx/' + result + '"> View Transaction </a>'
+
+					} else {
+						p = document.createElement("p")
+						p.className = "error"
+						if (error.code == -32000) {
+							t = document.createTextNode("Error: Gas fee was set low. Can you try again?")
+							p.append(t)
+							document.querySelector("#slideshow > div.object.textbox").append(p)
 						}
-					})
+						else {
+							p = error.message
+							document.querySelector("#slideshow > div.object.textbox").append(p)
+						}
+					}
+				})
 			}
 			catch (error) {
 				console.log(error)
@@ -59,7 +59,7 @@ SLIDES.push({
 				p.className = "error"
 				if (error == "ReferenceError: web3 is not defined") {
 					console.log("undefined")
-					t = `To use your Ethereum Wallet, login into Torus by clicking on the Blue icon at bottom left.`;
+					t = `To use your Ethereum Wallet, login into Torus by clicking on the Blue icon at bottom left. Also allow popup.`;
 					if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 						var linkElement = document.createElement('a');
 
@@ -78,7 +78,12 @@ SLIDES.push({
 					}
 				}
 				else {
-					t = document.createTextNode("To use your Ethereum Wallet, login into Torus by clicking on the Blue icon at bottom left.")
+					if (typeof torus !== 'undefined') {
+						t = document.createTextNode("To use your Ethereum Wallet, login into Torus by clicking on the Blue icon at bottom left. Also allow popup.")
+					}
+					else {
+						t = document.createTextNode("Login into Metamask or similar extension");
+					}
 				}
 				p.append(t)
 				document.querySelector("#slideshow > div.object.textbox").append(p)

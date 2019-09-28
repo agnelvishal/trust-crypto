@@ -107,6 +107,9 @@ sound.once('load',function() {sound.volume(0.75).loop(true).play();} );
 			o.loading_button1.config.onclick = function(){
 				publish("slideshow/goto", ["crypto"]);
 				//	screenfull.request();
+				if (typeof torus !== 'undefined') {
+				torus.login(); 
+				}
    sound = new Howl({ src:["assets/sounds/bg_music.mp3"] });
 sound.once('load',function() {sound.volume(0.75).loop(true).play();} );
 			};			

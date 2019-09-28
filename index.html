@@ -151,7 +151,7 @@
 		if (typeof web3 !== 'undefined') {
 			window.web3 = new Web3(ethereum);
 			console.log('You have web3');
-			ethereum.enable().then(console.log('You have loggined from metamask'));
+			ethereum.enable().then(console.log('You have logged in from metamask'));
 		} else {
 			console.log('You DONT HAVE Metamask or similar tool. No problem, we shall try using Torus');
 			(async () => {
