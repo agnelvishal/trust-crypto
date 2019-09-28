@@ -12,7 +12,7 @@ SLIDES.push({
 		// Circular Wordbox
 		self.add({
 			id: "crypto_text", type: "TextBox",
-			x: 130, y: 210, width: 700, height: 500, align: "center",
+			x: 130, y: 160, width: 700, height: 500, align: "center",
 			text_id: "crypto"
 		});
 
@@ -59,7 +59,7 @@ SLIDES.push({
 				p.className = "error"
 				if (error == "ReferenceError: web3 is not defined") {
 					console.log("undefined")
-					t = `To use your Ethereum Wallet, login into Torus by clicking on the Blue icon at bottom left. Also allow popup.`;
+					t = `To use your Ethereum Wallet, login into Torus by clicking on the Blue icon at bottom left. Also allow popup. Then click pay crypto again`;
 					if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 						var linkElement = document.createElement('a');
 
@@ -79,10 +79,10 @@ SLIDES.push({
 				}
 				else {
 					if (typeof torus !== 'undefined') {
-						t = document.createTextNode("To use your Ethereum Wallet, login into Torus by clicking on the Blue icon at bottom left. Also allow popup.")
+						t = document.createTextNode("To use your Ethereum Wallet, login into Torus by clicking on the Blue icon at bottom left. Also allow popup. Then click pay crypto again")
 					}
 					else {
-						t = document.createTextNode("Login into Metamask or similar extension");
+						t = document.createTextNode("Login and check Metamask or similar extension");
 					}
 				}
 				p.append(t)
